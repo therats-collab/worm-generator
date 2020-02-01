@@ -6,4 +6,7 @@ Naming scheme defaults to baseX00.png / eyesX00.png, etc.
 
 I'm learning as I go, but I'm doing my best to make this easy to read, for any future internet goers who need something like this.
 
-Code by 21 rats#2113, art by verenacafern#8203. Free to use provided all derivatives are free and open source.=
+Requires Python 3.7 and Pillow (pip install Pillow)
+
+
+Code by 21 rats#2113, art by verenacafern#8203. Free to use provided all derivatives are free and open source.
