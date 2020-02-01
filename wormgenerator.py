@@ -18,6 +18,8 @@ basePath = "input/base/"
 eyePath = "input/eye/"
 patternPath = "input/pattern/"
 baseCount = 24
+baseACount = 0  # TODO
+baseBCount = 0  # TOO
 eyeCount = 12
 patternCount = 4
 variantNumber = 0
@@ -28,6 +30,17 @@ tempFile = ""
 outputFolder = "output"
 done = False
 
+# TODO: figure out why baseBCount is double what it should be
+
+for filename in os.listdir(basePath):
+    if filename.startswith("baseA"):
+        baseACount = baseACount + 1
+        print(baseACount)
+
+for i in os.listdir(basePath):
+    if filename.startswith("baseB"):
+        baseBCount = baseBCount + 1
+        print(baseBCount)
 
 # ======== Main Loop ========#
 while not done:
