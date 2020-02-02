@@ -17,11 +17,15 @@ import os
 basePath = "input/base/"
 eyePath = "input/eye/"
 patternPath = "input/pattern/"
-baseCount = 24
-baseACount = 0  # TODO
-baseBCount = 0  # TOO
-eyeCount = 12
-patternCount = 4
+baseCount = 0
+baseACount = 0  
+baseBCount = 0  
+eyeCount = 0
+eyeACount = 0
+eyeBCount = 0
+patternCount = 0
+patternACount = 0 
+patternBCount = 0
 variantNumber = 0
 
 wormsMade = 0
@@ -30,18 +34,33 @@ tempFile = ""
 outputFolder = "output"
 done = False
 
-# TODO: figure out why baseBCount is double what it should be
-
 for filename in os.listdir(basePath):
     if filename.startswith("baseA"):
         baseACount = baseACount + 1
-        print(baseACount)
 
-for i in os.listdir(basePath):
+for filename in os.listdir(basePath):
     if filename.startswith("baseB"):
         baseBCount = baseBCount + 1
-        print(baseBCount)
 
+for filename in os.listdir(eyePath):
+    if filename.startswith("eyeA"):
+        eyeACount = eyeACount + 1
+
+for filename in os.listdir(eyePath):
+    if filename.startswith("eyeB"):
+        eyeBCount = eyeBCount + 1
+
+for filename in os.listdir(patternPath):
+    if filename.startswith("patternA"):
+        patternACount = patternACount + 1
+
+for filename in os.listdir(patternPath):
+    if filename.startswith("patternB"):
+        patternBCount = patternBCount + 1
+
+baseCount = (baseACount + baseBCount)
+eyeCount = (eyeACount + eyeBCount)
+patternCount = (patternACount + patternBCount)
 # ======== Main Loop ========#
 while not done:
     wormQuantity = int(input("How many worms would you like today? "))
@@ -52,9 +71,9 @@ while not done:
         variantNumber = random.randint(1, 2)            # Picks a random base from all of them
         # ======== Base A ======== #
         if variantNumber == 1:
-            baseNum = random.randint(1, 12)             # Generates random base
-            eyeNum = random.randint(1, 6)               # Generates random eye
-            patternNum = random.randint(1, 2)           # Generates random pattern
+            baseNum = random.randint(1, baseACount)             # Generates random base
+            eyeNum = random.randint(1, eyeACount)               # Generates random eye
+            patternNum = random.randint(1, patternACount)           # Generates random pattern
             # TODO: make check each variants count, see issue #2 on github
 
             baseFile = basePath + "baseA" + str(baseNum) + ".png"              # Finds correct path
@@ -83,9 +102,9 @@ while not done:
 
         # ======== Base B ======== #
         elif variantNumber == 2:
-            baseNum = random.randint(1, 12)             # Generates random base
-            eyeNum = random.randint(1, 6)               # Generates random eye
-            patternNum = random.randint(1, 2)           # Generates random pattern
+            baseNum = random.randint(1, baseBCount)             # Generates random base
+            eyeNum = random.randint(1, eyeBCount)               # Generates random eye
+            patternNum = random.randint(1, patternBCount)           # Generates random pattern
             # TODO: make check each variants count, see issue #2 on github
 
             baseFile = basePath + "baseB" + str(baseNum) + ".png"              # Finds correct path
